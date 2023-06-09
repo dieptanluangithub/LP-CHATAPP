@@ -1,0 +1,35 @@
+.CardAccept__body {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 8px;
+}
+.CardAccept__Image {
+    align-self: center;
+}
+.CardAccept__Name {
+    align-self: center;
+    margin-left: 10px;
+    font-size: large;
+    flex-grow: 1;
+    font-weight: 500;
+}
+.CardAccept__btn {
+    text-align: right;
+    align-self: center;
+    float: right;
+    color: #7268ef;
+    font-size: large;
+}
+.CardAccept__btn i {
+    padding: 5px 8px;
+    border-radius: 10px;
+    transform: rotate(-90deg);
+}
+.CardAccept__btn i:hover {
+    cursor: pointer;
+    background-color: var(--bs-gray-300);
+}
+.CardAccept__btn-pending {
+    height: fit-content;
+    align-self: center;
+}

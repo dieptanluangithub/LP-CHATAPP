@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600&display=swap");
+
+.SignIn__account-pages {
+    font-family: "Public Sans", sans-serif !important;
+    background-color: var(--bs-body-bg);
+}
+
+.SignIn__title {
+    font-size: calc(1.25625rem + 0.075vw);
+    font-weight: 600;
+}
+
+.SignIn__card {
+    border: none !important;
+    background-color: var(--bs-card-bg) !important;
+}
+
+.SignIn__form-control {
+    border-color: #e6ebf5 !important;
+    background-color: rgba(230, 235, 245, 0.25) !important;
+}
+
+.SignIn__input-text {
+    background-color: var(--bs-input-group-addon-bg) !important;
+    padding: 5px 15px !important;
+    color: var(--bs-text-muted) !important;
+}
+
+.SignIn__form:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-input-bg);
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.SignIn__form-control-lg {
+    min-height: calc(1.5em + calc(1rem + 6px)) !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.4rem !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    color: var(--bs-text-muted) !important;
+}
+
+.SignIn__bg-soft-light {
+    background-color: var(--bs-input-card-bg) !important;
+}
+
+.font-size-13 {
+    font-size: 13px !important;
+    text-decoration: none;
+}
+
+.SignIn__form-label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--bs-input-placeholder-color);
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+.SignIn__form-check {
+    display: block;
+    min-height: 1.40625rem;
+    padding-left: 1.5em;
+    margin-bottom: 0.125rem;
+}
+.SignIn__form-check input {
+    background-color: var(--bs-sidebar-sub-bg) !important;
+    border: 1px solid var(--bs-body-color) !important;
+    cursor: pointer;
+}
+.SignIn__form-check label {
+    font-size: 0.9375rem !important;
+    font-weight: 500 !important;
+    color: var(--bs-body-color) !important;
+}
+
+.SignIn__form-check input:checked {
+    background-color: #6159cb !important;
+    border-color: #7269ef !important;
+}
+
+.SignIn__btn-signin {
+    color: #fff !important;
+    background-color: #7269ef !important;
+    border-color: #7269ef !important;
+}
+
+.SignIn__btn-signin:hover {
+    color: #fff !important;
+    background-color: #6159cb !important;
+    border-color: #5b54bf !important;
+}
+
+.or {
+    margin: 1rem 0;
+}
+
+.SignIn__btn-signin-fb {
+    margin-bottom: 0.5rem;
+    padding: initial 10px;
+}
+
+.SignIn__btn-signin-gg {
+    background-color: #ff3224 !important;
+    border: solid 1px #ff3224 !important;
+    padding: initial 10px;
+}
+
+.SignIn__btn-signin-gg:hover {
+    background-color: #ff1100 !important;
+    border: solid 1px #ff1100 !important;
+}
+
+.SignIn__btn-text {
+    margin-left: 10px;
+}
+.SignIn__btn-icon {
+    float: left;
+}
+.SignIn__sign-up {
+    font-size: 0.9375rem;
+    color: var(--bs-body-color);
+}
+
+.SignIn__text-primary {
+    font-weight: 500 !important;
+    text-decoration: none;
+}

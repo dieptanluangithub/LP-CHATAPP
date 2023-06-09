@@ -1,0 +1,29 @@
+.Setting__body {
+    position: relative;
+    padding: 1rem;
+}
+.Setting__accordion-body {
+    color: var(--bs-body-color) !important;
+    font-weight: 600;
+    padding: 0 16px !important;
+}
+.Setting__accordion-item {
+    margin: 16px 0 !important;
+    font-size: x-large;
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+    padding: 8px 4px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.Setting__accordion-item:hover {
+    background-color: var(--bs-gray-200);
+}
+
+.Setting__accordion-itemSignOut {
+    margin-left: 8px;
+    font-size: medium;
+    align-self: center;
+}

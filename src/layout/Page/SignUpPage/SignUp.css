@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;800&display=swap");
+
+.SignUp__account-pages {
+    font-family: "Public Sans", sans-serif !important;
+    background-color: var(--bs-body-bg);
+    /* margin: 0 !important; */
+}
+
+.SignUp__title {
+    font-size: calc(1.25625rem + 0.075vw);
+    font-weight: 600;
+}
+
+.SignUp__card {
+    border: none !important;
+    background-color: var(--bs-card-bg) !important;
+}
+
+.SignUp__form-control {
+    border-color: #e6ebf5 !important;
+    background-color: rgba(230, 235, 245, 0.25) !important;
+}
+
+.SignUp__input-text {
+    background-color: var(--bs-input-group-addon-bg) !important;
+    padding: 5px 15px !important;
+    color: var(--bs-text-muted) !important;
+}
+
+.SignUp__form:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-input-bg);
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.SignUp__form-control-lg {
+    min-height: calc(1.5em + calc(1rem + 6px)) !important;
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.4rem !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    color: var(--bs-text-muted) !important;
+}
+
+.SignUp__form-label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--bs-input-placeholder-color);
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.SignIn__btn-signin-fb {
+    margin-bottom: 0.5rem;
+    padding: initial 10px;
+}
+
+.SignUp__sign-in {
+    font-size: 0.9375rem;
+    color: var(--bs-body-color);
+}
+
+.SignUp__text-primary {
+    font-weight: 500 !important;
+    text-decoration: none;
+}
+
+.signUp-text-color {
+    font-weight: 400;
+    color: var(--bs-body-color) !important;
+    background-color: var(--bs-input-bg) !important;
+    line-height: 2 !important;
+}
+
+.signUp-text-color::placeholder {
+    color: var(--bs-body-color) !important;
+}
+
+.signUp-text-color:focus {
+    box-shadow: none !important;
+}
+
+.signUp__button {
+    background-color: var(--bs-sidebar-menu-item-active-color) !important;
+    border-color: var(--bs-sidebar-menu-item-active-color) !important;
+}
+
+.signUp__textSignIn {
+    color: var(--bs-sidebar-menu-item-active-color) !important;
+    text-decoration: none;
+}

@@ -1,0 +1,26 @@
+.avatar_span {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+    background-color: #ffd166;
+    border: 2px solid var(--bs-card-bg);
+}
+.avatar_span_isActive {
+    width: 15px;
+    height: 15px;
+    right: 3px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #06d6a0;
+    bottom: 0;
+    border: 2px solid var(--bs-card-bg);
+}
+.image-square {
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}

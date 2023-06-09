@@ -1,0 +1,36 @@
+.CardMember__body {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 8px;
+}
+.CardMember__Image {
+    align-self: center;
+}
+.CardMember__Name {
+    align-self: center;
+    margin-left: 10px;
+    font-size: large;
+    flex-grow: 1;
+    font-weight: 500;
+    color: var(--bs-gray-500);
+}
+.CardMember__btn {
+    text-align: right;
+    align-self: center;
+    float: right;
+    color: #7268ef;
+    font-size: large;
+}
+.CardMember__btn i {
+    padding: 5px 8px;
+    border-radius: 10px;
+    transform: rotate(-90deg);
+}
+.CardMember__btn i:hover {
+    cursor: pointer;
+    background-color: var(--bs-gray-300);
+}
+.CardMember__btn-pending {
+    height: fit-content;
+    align-self: center;
+}

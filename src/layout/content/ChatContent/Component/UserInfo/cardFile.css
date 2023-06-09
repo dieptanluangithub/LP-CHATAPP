@@ -1,0 +1,17 @@
+.cardFile__img {
+    width: 32%;
+    aspect-ratio: 1/1;
+    background-color: var(--bs-gray-700);
+    border-radius: 10px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    object-fit: cover;
+}
+
+.cardFile__video {
+    width: 32%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    background-color: var(--bs-gray-700);
+    border-radius: 10px;
+}

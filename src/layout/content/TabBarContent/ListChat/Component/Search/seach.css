@@ -1,0 +1,15 @@
+
+
+.seach__text-color {
+    font-weight: 400;
+    color: var(--bs-body-color) !important;
+    background-color: var(--bs-input-bg) !important;
+}
+
+.seach__text-color::placeholder {
+    color: var(--bs-body-color) !important;
+}
+
+.seach__text-color:focus {
+    box-shadow: none !important;
+}

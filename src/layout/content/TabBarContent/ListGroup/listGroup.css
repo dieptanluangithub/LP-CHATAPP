@@ -1,0 +1,34 @@
+.ListGroup__Parent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.ListGroup__Child {
+    position: relative;
+    flex-grow: 1;
+}
+.ListGroup__NodeChild {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: unset;
+    transition: color 0.8s;
+}
+
+.ListGroup__NodeChild:hover {
+    color: var(--bs-gray-400);
+}
+
+@media (max-width: 991.99px) {
+    .ListGroup__NodeChild {
+        bottom: 52px;
+    }
+}
+.input__fileImage {
+    display: none !important;
+}

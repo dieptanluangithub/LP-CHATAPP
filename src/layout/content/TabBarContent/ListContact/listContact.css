@@ -1,0 +1,88 @@
+.listContact__dropdownToggle {
+    background-color: transparent !important;
+    --bs-text-opacity: 1;
+    padding: 0 5px;
+    color: var(--bs-text-muted) !important;
+    border-color: transparent !important;
+}
+.listContact__dropdownItem:active {
+    color: #1f2327 !important;
+    text-decoration: none;
+    background-color: #f8f9fa !important;
+}
+.listContact__AtoZ {
+    color: #7268ef !important;
+    font-weight: 700 !important;
+    padding: 0.2rem 1rem !important;
+    font-size: 20px;
+}
+.listContact__GroupAtoZ {
+    padding: 0 auto;
+}
+
+.ListContact__Parent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.ListContact__Child {
+    position: relative;
+    flex-grow: 1;
+}
+.ListContact__NodeChild {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: unset;
+    transition: color 0.8s;
+}
+
+.ListContact__NodeChild:hover {
+    color: var(--bs-gray-400);
+}
+@media (max-width: 991.99px) {
+    .ListContact__NodeChild {
+        bottom: 52px;
+    }
+}
+
+.friend_request_parent {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+.friend_request_parent:hover {
+    background-color: var(--bs-gray-200);
+}
+.friend_request_parent-image {
+    align-self: center;
+    font-size: x-large;
+    background-color: #7268ef;
+    padding: 8px 10px;
+    border-radius: 50%;
+}
+.friend_request_parent-text {
+    align-self: center;
+    margin-left: 10px;
+}
+.friend_request_parent-length {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.friend_request_parent-lengthContent {
+    display: flex !important;
+    height: fit-content !important;
+    align-self: center;
+    padding: 6px 8px !important;
+    text-align: center !important;
+    border-radius: 50% !important;
+}

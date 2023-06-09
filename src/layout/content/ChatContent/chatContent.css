@@ -1,0 +1,167 @@
+.chatContent__body {
+    background-color: var(--bs-card-bg);
+    transition: all 0.4s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width: 991.98px) {
+    .chatContent__body {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        z-index: 1030;
+    }
+    .chatContent__body.chatContent__body-show {
+        visibility: visible;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+.ChatContent__icon {
+    height: 40px;
+    width: 40px;
+    margin-left: 1rem;
+    font-size: larger;
+    cursor: pointer;
+    align-items: center;
+}
+
+.chatContent__input-parent {
+    max-height: 400px;
+    height: auto;
+}
+
+.chatContent__input {
+    border-radius: 8px !important;
+    margin-right: 10px;
+}
+.chatContent__button {
+    font-weight: 400 !important;
+    color: #7269ef !important;
+    font-size: larger !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+    margin: 0px 10px;
+    box-sizing: border-box;
+}
+.chatContent__button:hover {
+    box-shadow: 0 0 0 0.15rem rgb(114 105 239 / 25%);
+}
+.chatContent__buttonSend {
+    color: #fff !important;
+    background-color: #7269ef !important;
+    border-color: #7269ef !important;
+    font-size: x-large !important;
+    border-radius: 8px !important;
+    box-sizing: border-box;
+}
+
+.chatContent__buttonSend:active {
+    color: #fff !important;
+    background-color: #6159cb !important;
+    border-color: #5b54bf !important;
+    box-shadow: 0 0 0 0.15rem rgb(135 128 241 / 50%) !important;
+}
+.ChatContent__dropdown-background {
+    background-color: var(--bs-dropdown-bg) !important;
+}
+.ChatContent__dropdownLink {
+    color: var(--bs-dropdown-link-color) !important;
+}
+.ChatContent__dropdownLink:hover {
+    background-color: var(--bs-gray-300) !important;
+}
+
+.ChatContent__userInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    overflow: hidden;
+    width: 0;
+    border-left: 4px solid var(--bs-border-color) !important;
+    background-color: var(--bs-card-bg) !important;
+    transition: all 0.4s;
+}
+.ChatContent__userInfo.show {
+    width: 50%;
+}
+@media (max-width: 991.99px) {
+    .ChatContent__userInfo.show {
+        width: 100%;
+    }
+}
+
+.ChatContent__userInfo-buttonClose {
+    font-size: xx-large;
+    text-align: end;
+    margin-right: 16px;
+}
+
+.ChatContent__userInfo-avatar {
+    align-self: center;
+    border-bottom: 1px solid var(--bs-gray-300);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 16px 0;
+    color: var(--bs-gray-700);
+    font-weight: 500;
+    border-bottom: 1px solid var(--bs-border-color) !important;
+}
+
+.ChatContent__userInfo-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    -webkit-text-fill-color: unset;
+    color: rgba(0, 0, 0, 0);
+    transition: color 0.8s;
+}
+
+.ChatContent__userInfo-body:hover {
+    color: var(--bs-gray-400);
+}
+
+.ChatContent__userInfo-listFile {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: auto;
+    gap: 4px;
+    margin: 0 -5px;
+}
+
+.userInfo__AccordionItem {
+    background-color: var(--bs-accordion-bg) !important;
+    border: 1px solid var(--bs-border-color) !important;
+}
+.userInfo__AccordionItem button {
+    color: var(--bs-accordion-button-active-color) !important;
+    background-color: var(--bs-accordion-bg) !important;
+}
+
+.chatContent__body-background {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+}
+
+.chatContent__body-toast {
+    background-color: inherit !important;
+    color: inherit !important;
+    width: fit-content !important;
+}
+.chatContent__body-toast > button {
+    background-color: var(--bs-gray-500) !important;
+}

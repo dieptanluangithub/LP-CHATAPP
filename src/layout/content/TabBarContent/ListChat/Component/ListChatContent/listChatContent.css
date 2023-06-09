@@ -1,0 +1,39 @@
+.listChatContent__text-color {
+    color: var(--bs-gray-600);
+    font-weight: 500;
+}
+
+.listChatContent__child:hover {
+    background-color: var(--bs-light);
+}
+.listChatContent__child {
+    border-radius: 0.3rem !important;
+}
+.listChatContent_fix_height {
+    top: 0;
+    bottom: 0;
+    left: 8px;
+    right: 0;
+    position: absolute;
+    margin-top: 40px;
+    flex-grow: 1;
+    overflow-y: auto;
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-fill-color: unset;
+    transition: color 0.8s;
+}
+
+@media (max-width: 991.99px) {
+    .listChatContent_fix_height {
+        bottom: 52px;
+    }
+}
+
+.listChatContent_fix_height:hover {
+    color: var(--bs-gray-400);
+}
+
+.listChatContent_parent {
+    position: relative;
+    flex-grow: 1;
+}

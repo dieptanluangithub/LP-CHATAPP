@@ -1,0 +1,32 @@
+.CardInvite__body {
+    display: flex;
+    flex-direction: row;
+    padding: 5px 8px;
+}
+.CardInvite__Image {
+    align-self: center;
+}
+.CardInvite__Name {
+    align-self: center;
+    margin-left: 10px;
+    font-size: large;
+    font-weight: 500;
+}
+.CardInvite__btn {
+    text-align: right;
+    align-self: center;
+    flex-grow: 1;
+    font-size: large;
+}
+.CardInvite__btn i {
+    padding: 5px 8px;
+    border-radius: 10px;
+    transform: rotate(-90deg);
+}
+.CardInvite__btn i:hover {
+    background-color: var(--bs-gray-300);
+}
+
+.CardInvite__btn-border {
+    float: right;
+}

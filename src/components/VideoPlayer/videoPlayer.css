@@ -1,0 +1,66 @@
+.friend__video {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.videoCall__parent {
+    position: relative;
+    flex-grow: 2;
+    background-image: url("./calling.gif");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    height: 70vh;
+    border-radius: 10px;
+}
+.my__video {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.video_m {
+    max-width: 250px;
+    max-height: 120px;
+    border-radius: 10px;
+}
+.video_f {
+    height: 100%;
+    width: 100%;
+}
+@media (max-width: 991.99px) {
+    .video_m {
+        max-height: 40%;
+        max-width: 50%;
+    }
+    .videoCall__parent {
+        height: 80vh;
+    }
+}
+
+.videoCall__modal > div {
+    background-color: #222;
+}
+.videoCall__modal-body {
+    background-color: #222;
+}
+.callVideo__modal-footer {
+    background-color: #222;
+}
+.callVideo__parent-btn {
+    min-width: 100%;
+    text-align: center;
+}
+.callVideo__btn {
+    flex-grow: 1;
+    display: inline-block !important;
+    border-radius: 50% !important;
+    padding: 12px 15px !important;
+    font-size: large !important;
+    margin: 0 10px;
+}
+.videoCall__userName {
+    font-size: 30px;
+    color: aliceblue;
+    width: 100%;
+    text-align: center;
+}
