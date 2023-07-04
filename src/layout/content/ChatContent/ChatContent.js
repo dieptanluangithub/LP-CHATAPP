@@ -1,7 +1,8 @@
-/* eslint-disable no-redeclare */
+import Picker from "emoji-picker-react";
+import {BsEmojiSmileFill } from "react-icons/bs";
 import { Avatar, Confirm } from "components";
 import React, { useState, useContext } from "react";
-import BackGround from "image/backgroud.png";
+import BackGround from "image/robot.gif";
 import {
     Col,
     Row,
@@ -45,6 +46,7 @@ import AddMember from "./Component/AddMember/AddMember";
 import { findAllChildOfRecord } from "configs/firebase/ServiceFirebase/service";
 import { SocketContext } from "layout/Provider/Context";
 import useSoundMessage from "configs/customHook/useSoundMessage";
+import { set } from "firebase/database";
 
 function ChatContent() {
     const show = useSelector((state) => state.ShowMessage.value);
@@ -66,6 +68,11 @@ function ChatContent() {
         file: [],
         ListNameFile: [],
     });
+    //Set emoji
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const handleEmojiPickerhideShow = () => {
+        setShowEmojiPicker(!showEmojiPicker);
+      };
 
     const handleChangeStatus = async () => {
         await updateSoundMessage(currentUser.key, MessageData.key);
@@ -149,12 +156,13 @@ function ChatContent() {
             case "avi":
             case "mpg":
             case "mp4":
+            case "mov":   
+            case "mp3":
                 return 2;
             default:
                 return 0;
         }
     };
-
     //Send message
     const handleSend = async () => {
         const message = Message.message;
@@ -363,7 +371,6 @@ function ChatContent() {
             }
         }
     };
-
     const handleDeleteFile = (name) => {
         var ListNameFile = Message.ListNameFile;
         ListNameFile = ListNameFile.filter((value) => value !== name);
@@ -386,6 +393,13 @@ function ChatContent() {
         const message = e.target.value;
         setMessage((prev) => ({ ...prev, message: message }));
     };
+    
+    const onEnterPress = (e) => {
+        if(e.keyCode === 13 && e.shiftKey === false) {
+          e.preventDefault();
+          handleSend();
+        }
+      };
 
     //Bắt sự kiện đổi file
     const handleChangeFile = (e) => {
@@ -531,6 +545,7 @@ function ChatContent() {
                             name="message"
                             value={Message.message}
                             onChange={handleChangeMessage}
+                            onKeyDown={onEnterPress}
                         >
                             {Message.ListNameFile &&
                             Message.ListNameFile.length > 0 ? (
@@ -557,6 +572,7 @@ function ChatContent() {
                         >
                             <i className="bi bi-paperclip"></i>
                         </Button>
+                        
                         <InputGroup className="rounded-3 d-none">
                             <FormControl
                                 id="file_send"
@@ -564,8 +580,19 @@ function ChatContent() {
                                 multiple={true}
                                 files={Message.file}
                                 onChange={handleChangeFile}
+                                
                             ></FormControl>
                         </InputGroup>
+                        <Button
+                            className="chatContent__buttonemoji"
+                            variant="outline-secondary"
+                            name="btn_emj"
+                            // onClick={handleEmojiPickerhideShow}
+                        >
+                            <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
+                            {showEmojiPicker && <Picker onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
+                            {/* <i className="bi bi-emoji-laughing"></i> */}
+                        </Button>
                         <Button
                             className="chatContent__buttonSend"
                             variant="outline-secondary"
@@ -593,7 +620,10 @@ function ChatContent() {
                 />
             </Col>
         );
-    } else if (MessageData && MessageData.type === 2) {
+    }
+
+    // Chat nhóm
+    else if (MessageData && MessageData.type === 2) {
         //Tin nhắn với group
         return (
             <Col lg className={className_chat}>
@@ -717,6 +747,7 @@ function ChatContent() {
                             name="message"
                             value={Message.message}
                             onChange={handleChangeMessage}
+                            onKeyDown={onEnterPress}
                         >
                             {Message.ListNameFile &&
                             Message.ListNameFile.length > 0 ? (
@@ -753,6 +784,16 @@ function ChatContent() {
                             ></FormControl>
                         </InputGroup>
                         <Button
+                            className="chatContent__buttonemoji"
+                            variant="outline-secondary"
+                            name="btn_emj"
+                            // onClick={handleEmojiPickerhideShow}
+                        >
+                            <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
+                            {showEmojiPicker && <Picker onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
+                            {/* <i className="bi bi-emoji-laughing"></i> */}
+                        </Button>
+                        <Button
                             className="chatContent__buttonSend"
                             variant="outline-secondary"
                             name="btn_send"
@@ -787,7 +828,7 @@ function ChatContent() {
         );
     }
     //Chưa có tin nhắn
-    else
+    else{
         return (
             <Col lg className={className_chat}>
                 <Image
@@ -796,8 +837,11 @@ function ChatContent() {
                     height="100%"
                     className="chatContent__body-background"
                 />
+                <h1 className="chatContent__body-title">Welcome, <span>{currentUser.displayName}!</span></h1>
+                <h3 className="chatContent__body-title1">Please select a chat to Start messaging.</h3>
             </Col>
         );
+    }
 }
 
 export default ChatContent;

@@ -40,6 +40,7 @@
 .chatContent__input {
     border-radius: 8px !important;
     margin-right: 10px;
+    resize: none;
 }
 .chatContent__button {
     font-weight: 400 !important;
@@ -50,6 +51,31 @@
     border-radius: 8px !important;
     margin: 0px 10px;
     box-sizing: border-box;
+}
+.chatContent__buttonemoji {
+    font-weight: 400 !important;
+    color: #7269ef !important;
+    font-size: larger !important;
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+    margin: 0px 10px;
+    box-sizing: border-box;
+    
+}
+.input-group {
+    align-items: center !important;
+}
+.EmojiPickerReact {
+    position: absolute!important;
+    right: -9px!important;
+    bottom: 73px!important;
+}
+@media only screen and (max-width: 600px) {
+    .EmojiPickerReact {
+        width: auto !important;
+        height: 200px;
+    }
 }
 .chatContent__button:hover {
     box-shadow: 0 0 0 0.15rem rgb(114 105 239 / 25%);
@@ -153,10 +179,37 @@
 
 .chatContent__body-background {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     object-fit: contain;
 }
+.chatContent__body-title{
+    text-align: center;
+    margin-top: -150px;
+    font-weight: 800;
+}
+.chatContent__body-title1{
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 200;
+}
+@media only screen and (max-width: 600px) {
+    .chatContent__body{
+        width: auto !important;
+        height: auto !important;
+        object-fit: auto !important;
+    }
+    .chatContent__body-title{
+        text-align: center;
+        margin-top: auto !important;
+        font-weight: 200;
+    }
+    .chatContent__body-title1{
+        text-align: center;
+        margin-top: auto !important;
+        font-weight: 50;
 
+    }
+}
 .chatContent__body-toast {
     background-color: inherit !important;
     color: inherit !important;
