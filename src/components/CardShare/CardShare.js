@@ -36,7 +36,7 @@ function CardShare({ keyM, message, filter, uid }) {
                 <div className="CardInvite__Name">{info.name}</div>
                 <div className="CardInvite__btn" onClick={handleShare}>
                     {share === false ? (
-                        <i className="bi bi-share"></i>
+                        <i className="bi bi-layer-forward"></i>
                     ) : share === "pending" ? (
                         <div className="rotate CardInvite__btn-border">
                             <i className="bi bi-arrow-repeat "></i>

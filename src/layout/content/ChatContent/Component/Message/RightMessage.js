@@ -93,7 +93,7 @@ function RightMessage({ user, value }) {
                                             className="messageAction__dropdown-item"
                                             onClick={() => handleShare(tmp)}
                                         >
-                                            <i className="bi bi-share"></i>
+                                            <i className="bi bi-layer-forward"></i>
                                         </Dropdown.Item>
                                         <Dropdown.Item
                                             className="messageAction__dropdown-item"
@@ -190,7 +190,7 @@ function RightMessage({ user, value }) {
                                             className="messageAction__dropdown-item"
                                             onClick={() => handleShare(tmp)}
                                         >
-                                            <i className="bi bi-share"></i>
+                                            <i className="bi bi-layer-forward"></i>
                                         </Dropdown.Item>
                                         <Dropdown.Item
                                             className="messageAction__dropdown-item"
@@ -286,7 +286,7 @@ function RightMessage({ user, value }) {
                                             className="messageAction__dropdown-item"
                                             onClick={() => handleShare(tmp)}
                                         >
-                                            <i className="bi bi-share"></i>
+                                            <i className="bi bi-layer-forward"></i>
                                         </Dropdown.Item>
                                         <Dropdown.Item
                                             className="messageAction__dropdown-item"
