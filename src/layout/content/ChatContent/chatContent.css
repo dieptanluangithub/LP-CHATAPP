@@ -51,6 +51,7 @@
     border-radius: 8px !important;
     margin: 0px 10px;
     box-sizing: border-box;
+    align-self: center !important;
 }
 .chatContent__buttonemoji {
     font-weight: 400 !important;
@@ -61,11 +62,12 @@
     border-radius: 8px !important;
     margin: 0px 10px;
     box-sizing: border-box;
+    align-self: center !important;
     
 }
-.input-group {
+/* .input-group {
     align-items: center !important;
-}
+} */
 .EmojiPickerReact {
     position: absolute!important;
     right: -9px!important;
@@ -80,6 +82,12 @@
 .chatContent__button:hover {
     box-shadow: 0 0 0 0.15rem rgb(114 105 239 / 25%);
 }
+.chatContent__buttonemoji:hover {
+    box-shadow: 0 0 0 0.15rem rgb(114 105 239 / 25%);
+}
+.chatContent__buttonSend:hover {
+    box-shadow: 0 0 0 0.15rem rgba(228, 220, 220, 0.885);
+}
 .chatContent__buttonSend {
     color: #fff !important;
     background-color: #7269ef !important;
@@ -87,6 +95,7 @@
     font-size: x-large !important;
     border-radius: 8px !important;
     box-sizing: border-box;
+    align-self: center !important;
 }
 
 .chatContent__buttonSend:active {
@@ -193,11 +202,6 @@
     font-weight: 200;
 }
 @media only screen and (max-width: 600px) {
-    .chatContent__body{
-        width: auto !important;
-        height: auto !important;
-        object-fit: auto !important;
-    }
     .chatContent__body-title{
         text-align: center;
         margin-top: auto !important;
@@ -210,6 +214,7 @@
 
     }
 }
+
 .chatContent__body-toast {
     background-color: inherit !important;
     color: inherit !important;
