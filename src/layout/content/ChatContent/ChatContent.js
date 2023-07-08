@@ -167,8 +167,27 @@ function ChatContent() {
     }
 
     // Open Zoom meeting room
-    const handleOpenZoom = (url, windowName) => {
+    const handleOpenZoom = async (url, windowName) => {
         url = `https://lp-zoom.vercel.app/join/${MessageData.zoomUrl}`;
+
+        await addChildMessage(
+            MessageData.key,
+            5,
+            currentUser.uid,
+            `${currentUser.displayName} is joining meeting`,
+            url,
+            null
+        );
+
+        await addChildMessage(
+            MessageData.key,
+            1,
+            currentUser.uid,
+            `${url}`,
+            url,
+            null
+        );
+
         windowName = window.location.hostname;
         var ratio = 0.75;
         var height = window.innerHeight * ratio;
