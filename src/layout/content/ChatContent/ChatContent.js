@@ -141,9 +141,9 @@ function ChatContent() {
     const ZoomComponent = () => {
         var zoomUrl = `https://lp-zoom.vercel.app/join/${MessageData.zoomUrl}`
         return (
-            <Modal show={showZoomModal} onHide={handleCloseZoomModal} centered backdrop autoFocus fullscreen>
+            <Modal show={showZoomModal} onHide={handleCloseZoomModal} size="lg" centered autoFocus fullscreen={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>LP ZOOM MEETING</Modal.Title>
+                    <span>LP ZOOM MEETING</span>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -173,7 +173,8 @@ function ChatContent() {
         var ratio = 0.75;
         var height = window.innerHeight * ratio;
         var width = window.innerWidth * ratio;
-        var newwindow=window.open(url,windowName,`height=${height},width=${width}`);
+        var config = `directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,height=${height},width=${width}`;
+        var newwindow=window.open(url,windowName,config);
         if (window.focus) {newwindow.focus()}
         return false;
     }
@@ -684,7 +685,6 @@ function ChatContent() {
     // Chat nhóm
     else if (MessageData && MessageData.type === 2) {
         //Tin nhắn với group
-        console.log(MessageData)
         return (
             <Col lg className={className_chat}>
                 {/* Body message*/}
@@ -720,19 +720,19 @@ function ChatContent() {
                     <Col>
                         <div className="d-flex h-100 align-items-center float-end pe-3">
                             <div className="ChatContent__icon d-none d-lg-flex">
-                                {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#zoomMeeting">
+                                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#zoomMeeting">
                                 <i
                                     className="bi bi-camera-video-fill"
-                                    // onClick={handleOpenZoom}
+                                    onClick={handleOpenZoom}
                                 ></i>
-                                </button> */}
+                                </button>
 
-                                <Button variant="primary" onClick={handleShowZoomModal}>
+                                {/* <Button variant="primary" onClick={handleShowZoomModal}>
                                     <i
                                         className="bi bi-camera-video-fill"
                                     ></i>
                                 </Button>
-                                <ZoomComponent></ZoomComponent>
+                                <ZoomComponent></ZoomComponent> */}
                             </div>
                             <div
                                 className="ChatContent__icon d-none d-lg-flex"
@@ -760,6 +760,13 @@ function ChatContent() {
                                         >
                                             Info
                                             <i className="bi bi-person float-end"></i>
+                                        </Dropdown.Item>
+                                        <Dropdown.Item
+                                            className="listContact__dropdownItem d-lg-none d-block ChatContent__dropdownLink"
+                                            onClick={handleOpenZoom}
+                                        >
+                                            Meeting
+                                            <i className="bi bi-camera-video-fill float-end"></i>
                                         </Dropdown.Item>
                                         <Dropdown.Item
                                             className="listContact__dropdownItem ChatContent__dropdownLink"
