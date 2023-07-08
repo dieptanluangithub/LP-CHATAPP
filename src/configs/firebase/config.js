@@ -18,11 +18,12 @@ const firebaseConfig_old = {
 const firebaseConfig = {
     apiKey: "AIzaSyABHeEFmzwWUmXsOLEHLQoHyduVbG9HfJU",
     authDomain: "app-chat-new-c955f.firebaseapp.com",
+    databaseURL: "https://app-chat-new-c955f-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "app-chat-new-c955f",
     storageBucket: "app-chat-new-c955f.appspot.com",
     messagingSenderId: "42832451033",
     appId: "1:42832451033:web:fd17e0c0c62d418ef9f5c8"
-}
+  };
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
 
