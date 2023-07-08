@@ -1,5 +1,6 @@
 import {
     addRecord,
+    addZoomRecord,
     findExactRecord,
     deleteRecord,
     updateSpecialChildRecord,
@@ -60,6 +61,35 @@ export const AddFriend = async (friendUid, currentUserId) => {
     }
 };
 
+export const generateMeetingID = () => {
+    let meetingID = "";
+    const chars =
+      "12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP";
+    const maxPos = chars.length;
+  
+    for (let i = 0; i < 8; i++) {
+      meetingID += chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return meetingID;
+  };
+  
+export const addZoomMeetings = async (meetingName, groupCreatorId, listUserId) => {
+    const meetingId = generateMeetingID();
+    await addZoomRecord({
+      createdBy: groupCreatorId,
+      meetingId,
+      meetingName,
+      meetingType: "anyone-can-join",
+    //   meetingType: "video-conference",
+      invitedUsers: [],
+    //   invitedUsers: listUserId,
+      meetingDate: Date.now(),
+      maxUsers: listUserId.length,
+      status: true,
+    });
+    return meetingId;
+}
+
 export const addMessage = async (
     type,
     name,
@@ -71,6 +101,8 @@ export const addMessage = async (
     var date = new Date();
     var utc = date.getTime() + date.getTimezoneOffset() * 60000;
     var cdate = new Date(utc + 3600000 * 7);
+    var zoomUrl = await addZoomMeetings(name, createdBy, [...listUser])
+    console.log(zoomUrl);
     const keyMessage = await addRecord("messages", {
         type: type,
         describe: describe,
@@ -80,6 +112,7 @@ export const addMessage = async (
         listMessage: [],
         timeUpdate: cdate.getTime(),
         createdBy: createdBy,
+        zoomUrl: zoomUrl,
     });
     listUser.forEach(async (uid) => {
         const key = await findUserKeyByUid(uid);

@@ -11,6 +11,9 @@ import {
     FormControl,
     Button,
     Image,
+    Alert,
+    Modal,
+    Form,
     Toast,
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -68,6 +71,13 @@ function ChatContent() {
         file: [],
         ListNameFile: [],
     });
+
+    const [showmic, setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false);
+    };
+    const localTheme = useSelector((state) => state.LocalTheme.theme);
+
     //Set emoji
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const handleEmojiPickerhideShow = () => {
@@ -81,6 +91,7 @@ function ChatContent() {
     const className_chat = show
         ? "chatContent__body chatContent__body-show"
         : "chatContent__body";
+   
 
     //Show dialog
     const handleShowConfirm = (actionType) => {
@@ -121,6 +132,51 @@ function ChatContent() {
             callUser(serial.val, MessageData.name);
         }
     };
+
+    const [showZoomModal, setShowZoomModal] = useState(false);
+
+    const handleCloseZoomModal = () => setShowZoomModal(false);
+    const handleShowZoomModal = () => setShowZoomModal(true);
+
+    const ZoomComponent = () => {
+        var zoomUrl = `https://lp-zoom.vercel.app/join/${MessageData.zoomUrl}`
+        return (
+            <Modal show={showZoomModal} onHide={handleCloseZoomModal} centered backdrop autoFocus fullscreen>
+                <Modal.Header closeButton>
+                    <Modal.Title>LP ZOOM MEETING</Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <iframe src={zoomUrl}
+                        width={'100%'} height={'100%'}
+                        allow="camera;microphone">
+                    
+                    </iframe>
+                </Modal.Body>
+
+                {/* <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseZoomModal}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleCloseZoomModal}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer> */}
+            </Modal>
+        )
+    }
+
+    // Open Zoom meeting room
+    const handleOpenZoom = (url, windowName) => {
+        url = `https://lp-zoom.vercel.app/join/${MessageData.zoomUrl}`;
+        windowName = window.location.hostname;
+        var ratio = 0.75;
+        var height = window.innerHeight * ratio;
+        var width = window.innerWidth * ratio;
+        var newwindow=window.open(url,windowName,`height=${height},width=${width}`);
+        if (window.focus) {newwindow.focus()}
+        return false;
+    }
 
     //Xoá tin nhắn
     const handleDeleteMessage = async () => {
@@ -459,6 +515,7 @@ function ChatContent() {
                                     onClick={handleCall}
                                 ></i>
                             </div>
+                        
                             <div
                                 className="ChatContent__icon d-none d-lg-flex"
                                 onClick={() => setShowInfo(true)}
@@ -603,6 +660,7 @@ function ChatContent() {
                         </Button>
                     </InputGroup>
                 </Row>
+                
                 {/*Tab info */}
                 <UserInfo
                     showInfo={showInfo}
@@ -619,12 +677,14 @@ function ChatContent() {
                     text={actionConfirm.text}
                 />
             </Col>
+            
         );
     }
 
     // Chat nhóm
     else if (MessageData && MessageData.type === 2) {
         //Tin nhắn với group
+        console.log(MessageData)
         return (
             <Col lg className={className_chat}>
                 {/* Body message*/}
@@ -659,6 +719,21 @@ function ChatContent() {
                     </Col>
                     <Col>
                         <div className="d-flex h-100 align-items-center float-end pe-3">
+                            <div className="ChatContent__icon d-none d-lg-flex">
+                                {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#zoomMeeting">
+                                <i
+                                    className="bi bi-camera-video-fill"
+                                    // onClick={handleOpenZoom}
+                                ></i>
+                                </button> */}
+
+                                <Button variant="primary" onClick={handleShowZoomModal}>
+                                    <i
+                                        className="bi bi-camera-video-fill"
+                                    ></i>
+                                </Button>
+                                <ZoomComponent></ZoomComponent>
+                            </div>
                             <div
                                 className="ChatContent__icon d-none d-lg-flex"
                                 onClick={() => setShowInfo(true)}

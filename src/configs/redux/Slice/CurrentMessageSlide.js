@@ -66,6 +66,7 @@ export const CurrentMessageSlice = createSlice({
                         email: friend.email,
                         isOnline: friend.isOnline,
                         createAt: createAt,
+                        zoomUrl: value.val.zoomUrl,
                     };
                 } else {
                     state.data = {
@@ -82,6 +83,7 @@ export const CurrentMessageSlice = createSlice({
                         isOnline: friend.isOnline,
                         keyUser: friend.key,
                         createAt: 0,
+                        zoomUrl: value.val.zoomUrl,
                     };
                 }
             }
@@ -98,6 +100,7 @@ export const CurrentMessageSlice = createSlice({
                     isOnline: true,
                     createdBy: value.val.createdBy,
                     createAt: createAt,
+                    zoomUrl: value.val.zoomUrl,
                 };
             }
             // state.listUser = action.payload;

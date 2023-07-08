@@ -9,6 +9,8 @@ import {
     remove,
 } from "firebase/database";
 import { db } from "configs/firebase/config";
+import { meetingsRef } from "configs/firebase/zoomConfig";
+import { addDoc } from "firebase/firestore";
 
 export const addRecord = async (colect, data) => {
     try {
@@ -21,6 +23,18 @@ export const addRecord = async (colect, data) => {
         console.log(error);
     }
 };
+
+export const addZoomRecord = async (data) => {
+    try {
+        const docRef = await addDoc(meetingsRef, {
+            ...data,
+            createAt: new Date().getTime(),
+        });
+        return docRef.id;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const findAllChildOfSpecialCollect = async (
     colect,
