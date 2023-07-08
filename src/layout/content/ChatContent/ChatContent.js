@@ -178,15 +178,14 @@ function ChatContent() {
             url,
             null
         );
-
-        await addChildMessage(
-            MessageData.key,
-            1,
-            currentUser.uid,
-            `${url}`,
-            url,
-            null
-        );
+        // await addChildMessage(
+        //     MessageData.key,
+        //     1,
+        //     currentUser.uid,
+        //     `${url}`,
+        //     url,
+        //     null
+        // );
 
         windowName = window.location.hostname;
         var ratio = 0.75;
