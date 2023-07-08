@@ -149,7 +149,7 @@ function ChatContent() {
                 <Modal.Body>
                     <iframe src={zoomUrl}
                         width={'100%'} height={'100%'}
-                        allow="camera;microphone">
+                        allow="camera; microphone; display-capture; autoplay; clipboard-write;">
                     
                     </iframe>
                 </Modal.Body>
