@@ -17,6 +17,8 @@ import GroupItem from "./GroupItem";
 import { useSelector } from "react-redux";
 import { addMessage } from "configs/firebase/ServiceFirebase/ServiceInsert";
 import { uploadImage } from "configs/firebase/StorageFirebase";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ListGroup() {
     const [show, setShow] = useState(false);
@@ -79,10 +81,10 @@ function ListGroup() {
         var describe = String(groupCreate.describe).trim();
         var file = groupCreate.file;
         if (
-            name === "" ||
-            describe === "" ||
-            name === null ||
-            describe === null
+            name === "" 
+            || name === null 
+            // || describe === "" 
+            // || describe === null
         ) {
             setAlert(false);
             setShowDialog(true);
@@ -90,7 +92,7 @@ function ListGroup() {
             var url = "";
             if (file !== null && file) url = await uploadImage(file);
             if (url === undefined) url = "";
-            addMessage(
+            await addMessage(
                 2,
                 name,
                 describe,
@@ -99,13 +101,25 @@ function ListGroup() {
                 currentUser.uid
             )
                 .then(() => {
-                    setAlert(true);
-                    setShowDialog(true);
+                    setAlert(false);
+                    setShowDialog(false);
                     setGroupCreate({ groupName: "", describe: "" });
                 })
                 .catch((e) => {
                     console.log(e);
                 });
+
+            toast.success('🦄 Create new group successfully!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            setShow(false);
         }
     };
 
@@ -271,6 +285,19 @@ function ListGroup() {
                         ))}
                 </div>
             </div>
+            
+            <ToastContainer
+                position="top-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 }
