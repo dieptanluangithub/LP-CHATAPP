@@ -50,6 +50,8 @@ import { findAllChildOfRecord } from "configs/firebase/ServiceFirebase/service";
 import { SocketContext } from "layout/Provider/Context";
 import useSoundMessage from "configs/customHook/useSoundMessage";
 import { set } from "firebase/database";
+import VoiceRecorder from "./VoiceRecorder";
+import { useEffect } from "react";
 
 function ChatContent() {
     const show = useSelector((state) => state.ShowMessage.value);
@@ -162,6 +164,59 @@ function ChatContent() {
                         Save Changes
                     </Button>
                 </Modal.Footer> */}
+            </Modal>
+        )
+    }
+
+    const [showVoiceModal, setShowVoiceModal] = useState(false);
+    const [linkFileVoice, setLinkFileVoice] = useState(null);
+
+    const handleCloseVoiceModal = () => setShowVoiceModal(false);
+    const handleShowVoiceModal = () => setShowVoiceModal(true);
+    useEffect(() => {
+        console.log('link file voice: ', linkFileVoice);
+        const newVoiceMessage = async () => {
+            var listVoice = [linkFileVoice]
+            await addChildMessage(
+                MessageData.key,
+                2,
+                currentUser.uid,
+                "@attach",
+                listVoice,
+                null
+            );
+
+            handleCloseVoiceModal();
+        }
+
+        if (linkFileVoice) newVoiceMessage();
+
+    }, [linkFileVoice])
+
+    const VoiceComponent = () => {
+        return (
+            <Modal show={showVoiceModal} onHide={handleCloseVoiceModal} size="lg" centered autoFocus fullscreen={false}>
+                <Modal.Header closeButton>
+                    <span>LP VOICE</span>
+                </Modal.Header>
+
+                <Modal.Body>
+                    <VoiceRecorder setLinkFileVoice={setLinkFileVoice}></VoiceRecorder>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    {/* <button onClick={() => setRecord(true)} type="button" className='btn_modal'
+                variant="outline-secondary"
+                name="btn_send"
+                >
+                    Start
+                </button>
+                <button onClick={() => setRecord(false)} type="button" className='btn_modal'
+                variant="outline-secondary"
+                name="btn_send">
+                    Stop
+                </button> */}
+                </Modal.Footer>
             </Modal>
         )
     }
@@ -669,6 +724,16 @@ function ChatContent() {
                             {showEmojiPicker && <Picker onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
                             {/* <i className="bi bi-emoji-laughing"></i> */}
                         </Button>
+                        <Button
+                            className="chatContent__button"
+                            variant="outline-secondary"
+                            onClick={handleShowVoiceModal}
+                            // onChange={handleChangeFile}
+                        
+                        >
+                            <i className="bi bi-mic-fill"></i>
+                        </Button>
+                        <VoiceComponent></VoiceComponent>
                         <Button
                             className="chatContent__buttonSend"
                             variant="outline-secondary"

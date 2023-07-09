@@ -19,7 +19,7 @@ const useListFile = (key) => {
                 var list = [];
                 snapshot.forEach((child) => {
                     var val = child.val();
-                    if (val.type === 2) {
+                    if (val.type === 2 && val.urls) {
                         val.urls.forEach((url) => {
                             list.push({ createAt: val.createAt, url: url });
                         });
