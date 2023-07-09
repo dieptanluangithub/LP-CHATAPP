@@ -21,7 +21,7 @@ function App() {
                             element={<ResetPassword />}
                         ></Route>
                         <Route path="/Login" element={<LoginPage />}></Route>
-                        <Route path="/MainPage" element={<MainPage />}></Route>
+                        <Route path="/" element={<MainPage />}></Route>
                         <Route path="*" element={<Navigate to="/Login" />} />
                     </Routes>
                 </AppProvider>
