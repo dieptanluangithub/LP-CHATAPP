@@ -996,12 +996,15 @@ function ChatContent() {
     else{
         return (
             <Col lg className={className_chat}>
-                <Image
+                {/* <Image
                     src={BackGround}
                     width="100%"
                     height="100%"
                     className="chatContent__body-background"
-                />
+                /> */}
+                <iframe src="https://embed.lottiefiles.com/animation/90691" width="100%"
+                    height="100%"
+                    className="chatContent__body-background"></iframe>
                 <h1 className="chatContent__body-title">Welcome, <span>{currentUser.displayName}!</span></h1>
                 <h3 className="chatContent__body-title1">Please select a chat to Start messaging.</h3>
             </Col>
