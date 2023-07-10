@@ -959,6 +959,16 @@ function ChatContent() {
                             {/* <i className="bi bi-emoji-laughing"></i> */}
                         </Button>
                         <Button
+                            className="chatContent__button"
+                            variant="outline-secondary"
+                            onClick={handleShowVoiceModal}
+                            // onChange={handleChangeFile}
+                        
+                        >
+                            <i className="bi bi-mic-fill"></i>
+                        </Button>
+                        <VoiceComponent></VoiceComponent>
+                        <Button
                             className="chatContent__buttonSend"
                             variant="outline-secondary"
                             name="btn_send"

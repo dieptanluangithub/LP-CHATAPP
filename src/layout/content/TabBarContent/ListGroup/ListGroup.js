@@ -114,21 +114,20 @@ function ListGroup() {
                     setAlert(false);
                     setShowDialog(false);
                     setGroupCreate({ groupName: "", describe: "" });
+                    toast.success('🦄 Create new group successfully!', {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
                 })
                 .catch((e) => {
                     console.log(e);
                 });
-
-            toast.success('🦄 Create new group successfully!', {
-                position: "top-right",
-                autoClose: 1000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
             setShow(false);
         }
     };

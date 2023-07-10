@@ -14,6 +14,8 @@ import { uploadImage } from "configs/firebase/StorageFirebase";
 import { updateInfoUser } from "configs/firebase/ServiceFirebase/ServiceUpdate";
 import { useDispatch } from "react-redux";
 import { Update } from "configs/redux/Slice/UserSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function UserInfo() {
     const currentUser = useSelector((state) => state.UserInfo.user);
     const localTheme = useSelector((state) => state.LocalTheme.theme);
@@ -59,9 +61,21 @@ function UserInfo() {
         e.preventDefault();
         var name = String(newInfo.displayName).trim();
         var file = newInfo.file;
-        if (name === "" || name === null) {
+        if (name === ""
+            || name === null
+        ) {
             setAlert(false);
             setShowDialog(true);
+            toast.error('Oh snap! An error has occurred', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         } else {
             var url = currentUser.photoURL;
             if (file !== null && file) url = await uploadImage(file);
@@ -71,10 +85,22 @@ function UserInfo() {
                     setAlert(true);
                     setShowDialog(true);
                     dispatch(Update({ displayName: name, photoURL: url }));
+                    toast.success('🦄 Update information successfully!', {
+                        position: "top-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
                 })
                 .catch((e) => {
                     console.log(e);
                 });
+                
+                setShow(false);
         }
     };
 
@@ -177,22 +203,21 @@ function UserInfo() {
                         </Button>
                     </Modal.Footer>
                 </Form>
-
-                {showDialog === true &&
-                    (alert === true ? (
-                        <Alert variant="success" className="mb-0">
-                            <Alert.Heading>Success !!!</Alert.Heading>
-                        </Alert>
-                    ) : (
-                        <Alert variant="danger" className="mb-0 pt-1 pb-0">
-                            <Alert.Heading>
-                                Oh snap! You got an error!
-                            </Alert.Heading>
-                            <p>Name is empty !!!</p>
-                        </Alert>
-                    ))}
             </Modal>
+            <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
         </div>
+        
     );
 }
 

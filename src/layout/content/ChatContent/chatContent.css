@@ -86,12 +86,13 @@
 .EmojiPickerReact {
     position: absolute!important;
     right: -9px!important;
-    bottom: 73px!important;
+    bottom: 60px!important;
 }
 @media only screen and (max-width: 600px) {
     .EmojiPickerReact {
         width: auto !important;
-        height: 200px;
+        height: 80px;
+        right: -110px!important;
     }
 }
 .chatContent__button:hover {

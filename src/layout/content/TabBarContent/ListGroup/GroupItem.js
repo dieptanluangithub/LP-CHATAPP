@@ -28,7 +28,9 @@ function GroupItem(props) {
         dispatch(show());
     };
     if (check(val.name))
+        
         return (
+            
             <div
                 className="p-2 d-flex cur-pointer listChatContent__child"
                 onClick={handleShow}
