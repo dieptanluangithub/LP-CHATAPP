@@ -24,6 +24,8 @@ import { changeMethod } from "configs/redux/Slice/CurrentMethodSlice";
 import { addUser } from "configs/firebase/ServiceFirebase/ServiceInsert";
 import { findUserAndKeyByUid } from "configs/firebase/ServiceFirebase/ServiceFind";
 import { LogIn } from "configs/redux/Slice/UserSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -80,12 +82,43 @@ const SignUp = () => {
                         );
                         navigate("/");
                         // setNotify(true);
+                        toast.success('🦄 You have sign up successfully!', {
+                            position: "top-right",
+                            autoClose: 1000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                            });
                     })
                     .catch(() => {
-                        setNotify(false);
+                        //setNotify(false);
+                        toast.error('Oh snap! You got an error!', {
+                            position: "top-right",
+                            autoClose: 1000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                            });
+                        
                     });
             } else {
-                setNotify(false);
+                //setNotify(false);
+                toast.error('Oh snap! You got an error!', {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
             }
     };
 
@@ -224,7 +257,20 @@ const SignUp = () => {
                     </Col>
                 </Row>
             </div>
+            <ToastContainer
+            position="top-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+        />
         </Body>
+        
     );
 };
 

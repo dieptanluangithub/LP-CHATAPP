@@ -88,6 +88,16 @@ function ListGroup() {
         ) {
             setAlert(false);
             setShowDialog(true);
+            toast.error('Oh snap! Group Name is empty!!!', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         } else {
             var url = "";
             if (file !== null && file) url = await uploadImage(file);
@@ -223,23 +233,6 @@ function ListGroup() {
                                 </Button>
                             </Modal.Footer>
                         </Form>
-
-                        {showDialog === true &&
-                            (alert === true ? (
-                                <Alert variant="success" className="mb-0">
-                                    <Alert.Heading>Success !!!</Alert.Heading>
-                                </Alert>
-                            ) : (
-                                <Alert
-                                    variant="danger"
-                                    className="mb-0 pt-1 pb-0"
-                                >
-                                    <Alert.Heading>
-                                        Oh snap! You got an error!
-                                    </Alert.Heading>
-                                    <p>Name or description is empty !!!</p>
-                                </Alert>
-                            ))}
                     </Modal>
                     <OverlayTrigger
                         placement="bottom"

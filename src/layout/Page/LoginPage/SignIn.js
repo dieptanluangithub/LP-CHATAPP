@@ -21,7 +21,8 @@ import { change } from "configs/redux/Slice/CurrentPageSlice";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "configs/firebase/config";
 import { validateEmail, validatePassword } from "configs/Validate";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const providers = {
     google: new GoogleAuthProvider(),
     facebook: new FacebookAuthProvider(),
@@ -69,10 +70,30 @@ const SignIn = (props) => {
                         navigate("/");
                     })
                     .catch((error) => {
-                        setNotify(true);
+                        // setNotify(true);
+                        toast.error('🦄 Wrong email or password', {
+                            position: "top-right",
+                            autoClose: 1000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                            });
                     });
             } else {
-                setNotify(true);
+                // setNotify(true);
+                toast.error('🦄 Wrong email or password', {
+                    position: "top-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
             }
         }
     };
@@ -225,6 +246,18 @@ const SignIn = (props) => {
                     </div>
                 </Col>
             </Row>
+            <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        />
         </div>
     );
 };
