@@ -721,8 +721,12 @@ function ChatContent() {
                             // onClick={handleEmojiPickerhideShow}
                         >
                             <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
-                            {showEmojiPicker && <Picker onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
-                            {/* <i className="bi bi-emoji-laughing"></i> */}
+                            {showEmojiPicker
+                            && <Picker
+                            autoFocusSearch={false}
+                            searchDisabled
+                            skinTonesDisabled
+                            onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
                         </Button>
                         <Button
                             className="chatContent__button"
@@ -955,8 +959,12 @@ function ChatContent() {
                             // onClick={handleEmojiPickerhideShow}
                         >
                             <BsEmojiSmileFill onClick={handleEmojiPickerhideShow} />
-                            {showEmojiPicker && <Picker onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
-                            {/* <i className="bi bi-emoji-laughing"></i> */}
+                            {showEmojiPicker
+                            && <Picker
+                            autoFocusSearch={false}
+                            searchDisabled
+                            skinTonesDisabled
+                            onEmojiClick={(emojiObject)=> setMessage((prev) => ({ ...prev, message: Message.message + emojiObject.emoji}))}/>}
                         </Button>
                         <Button
                             className="chatContent__button"
