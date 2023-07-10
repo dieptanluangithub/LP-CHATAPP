@@ -229,6 +229,13 @@
         font-weight: 50;
 
     }
+    .sound-wave{
+        width: 80%;
+    }
+    .modal-content{
+        width: 50%;
+        height: 50%;
+    }
 }
 
 .chatContent__body-toast {
