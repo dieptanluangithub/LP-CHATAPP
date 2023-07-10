@@ -12,7 +12,7 @@ import {
     Alert,
 } from "react-bootstrap";
 import "./SignUp.css";
-import Logo from "image/logo.png";
+import Logo from "image/logo.webp";
 import { Body } from "components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";

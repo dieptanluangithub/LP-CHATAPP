@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./SignIn.css";
-import Logo from "image/logo.png";
+import Logo from "image/logo.webp";
 import {
     Col,
     Row,

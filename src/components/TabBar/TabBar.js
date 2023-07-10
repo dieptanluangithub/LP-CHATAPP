@@ -1,6 +1,6 @@
 import React from "react";
 import Tab from "react-bootstrap/Tab";
-import logo from "image/logo.png";
+import logo from "image/logo.webp";
 import Avatar from "components/Avatar";
 import { Col, Nav, Dropdown } from "react-bootstrap";
 import { TabBarContent } from "layout/content";
@@ -14,6 +14,7 @@ import "./TabBar.css";
 import { changeSound } from "configs/redux/Slice/SoundSlice";
 
 function TabBar() {
+    const refresh = () => window.location.reload(true)
     const theme = useSelector((state) => state.LocalTheme.theme);
     const user = useSelector((state) => state.UserInfo.user);
     const sound = useSelector((state) => state.Sound.sound);
@@ -45,9 +46,7 @@ function TabBar() {
                             className="logo"
                             src={logo}
                             alt="Chats"
-                            onClick={() => {
-                                navigate("/");
-                            }}
+                            onClick={refresh}
                         />
                     </Nav.Item>
                     <Nav.Item>
