@@ -78,7 +78,7 @@ const SignUp = () => {
                                 displayName: users.val.displayName,
                             })
                         );
-                        navigate("/MainPage");
+                        navigate("/");
                         // setNotify(true);
                     })
                     .catch(() => {

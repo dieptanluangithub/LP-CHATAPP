@@ -66,7 +66,7 @@ const SignIn = (props) => {
                     account.password.trim()
                 )
                     .then(async (userCredential) => {
-                        navigate("/MainPage");
+                        navigate("/");
                     })
                     .catch((error) => {
                         setNotify(true);

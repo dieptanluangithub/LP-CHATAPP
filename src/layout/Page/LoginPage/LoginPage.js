@@ -84,7 +84,7 @@ function LoginPage() {
                 </Body>
             </div>
         );
-    else return <Navigate to="/MainPage" />;
+    else return <Navigate to="/" />;
 }
 
 export default React.memo(LoginPage);
