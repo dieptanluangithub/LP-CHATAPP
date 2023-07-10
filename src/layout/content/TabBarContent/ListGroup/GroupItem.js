@@ -57,6 +57,13 @@ function GroupItem(props) {
                                 Remove
                                 <i className="bi bi-trash3-fill float-end text-muted"></i>
                             </Dropdown.Item>
+                            <Dropdown.Item
+                                className="listContact__dropdownItem"
+                                // onClick={handleDelete}
+                            >
+                                Update
+                                <i className="bi bi-tag-fill float-end text-muted"></i>
+                            </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Col>

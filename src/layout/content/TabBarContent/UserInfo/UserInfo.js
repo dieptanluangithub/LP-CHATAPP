@@ -8,6 +8,7 @@ import {
     Form,
     InputGroup,
     FormControl,
+    Badge,
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { uploadImage } from "configs/firebase/StorageFirebase";
@@ -17,6 +18,9 @@ import { Update } from "configs/redux/Slice/UserSlice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function UserInfo() {
+    const listFriendWait = useSelector((state) => state.ListFriendWait);
+    const listFriend = useSelector((state) => state.listFriend);
+    const [showRequset, setShowRequset] = useState(false);
     const currentUser = useSelector((state) => state.UserInfo.user);
     const localTheme = useSelector((state) => state.LocalTheme.theme);
     const [show, setShow] = useState(false);
@@ -143,10 +147,59 @@ function UserInfo() {
                                     </h6>
                                 </div>
                             </div>
+                            <h6
+                                className="friend_request_parent"
+                            >
+                                <div className="friend_request_parent-text">Friend Request</div>
+                                <div className="friend_request_parent-length">
+                                    <Badge
+                                        className="friend_request_parent-lengthContent"
+                                        bg="primary"
+                                    >
+                                        {(listFriendWait &&
+                                            listFriendWait?.listUser &&
+                                            listFriendWait.listUser.length) ||
+                                            0}
+                                    </Badge>
+                                </div>
+                            </h6>
+                            <h6
+                                className="friend_request_parent"
+                            >
+                                <div className="friend_request_parent-text">Friends</div>
+                                <div className="friend_request_parent-length">
+                                    <Badge
+                                        className="friend_request_parent-lengthContent"
+                                        bg="primary"
+                                    >
+                                        {(listFriend &&
+                                            listFriend?.listUser &&
+                                            listFriend.listUser.length) ||
+                                            0}
+                                    </Badge>
+                                </div>
+                            </h6>
+                            <h6
+                                className="friend_request_parent"
+                            >
+                                <div className="friend_request_parent-text">Groups</div>
+                                <div className="friend_request_parent-length">
+                                    <Badge
+                                        className="friend_request_parent-lengthContent"
+                                        bg="primary"
+                                    >
+                                        {(listFriendWait &&
+                                            listFriendWait?.listUser &&
+                                            listFriendWait.listUser.length) ||
+                                            0}
+                                    </Badge>
+                                </div>
+                            </h6>
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
             </div>
+            
             <Modal
                 show={show}
                 centered

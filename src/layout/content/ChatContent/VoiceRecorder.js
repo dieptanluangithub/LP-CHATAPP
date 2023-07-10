@@ -65,13 +65,13 @@ export default function VoiceRecorder({setLinkFileVoice}) {
         name="btn_send"
         disabled={isSending}
         >
-          Start
+          <i class="bi bi-play-circle-fill"></i>
         </button>
         <button onClick={() => setRecord(false)} type="button" className='chatContent__buttonSend'
         variant="outline-secondary"
         name="btn_send"
         disabled={isSending}>
-          Stop
+          <i class="bi bi-stop-circle-fill"></i>
         </button>
         <button onClick={sendMessage} type="button" className='chatContent__buttonSend'
         variant="outline-secondary"
@@ -87,7 +87,7 @@ export default function VoiceRecorder({setLinkFileVoice}) {
             hidden={!isSending}
             className='mx-2 p-1'
           />
-          Send
+          <i class="bi bi-send-fill"></i>
         </button>
       </div>
     </div>

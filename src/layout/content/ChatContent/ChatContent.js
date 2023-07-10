@@ -196,27 +196,13 @@ function ChatContent() {
     const VoiceComponent = () => {
         return (
             <Modal show={showVoiceModal} onHide={handleCloseVoiceModal} size="lg" centered autoFocus fullscreen={false}>
-                <Modal.Header closeButton>
-                    <span>LP VOICE</span>
+                <Modal.Header closeButton >
+                    <span>RECORD YOUR MESSAGE</span>
                 </Modal.Header>
 
                 <Modal.Body>
                     <VoiceRecorder setLinkFileVoice={setLinkFileVoice}></VoiceRecorder>
                 </Modal.Body>
-
-                <Modal.Footer>
-                    {/* <button onClick={() => setRecord(true)} type="button" className='btn_modal'
-                variant="outline-secondary"
-                name="btn_send"
-                >
-                    Start
-                </button>
-                <button onClick={() => setRecord(false)} type="button" className='btn_modal'
-                variant="outline-secondary"
-                name="btn_send">
-                    Stop
-                </button> */}
-                </Modal.Footer>
             </Modal>
         )
     }
@@ -233,14 +219,6 @@ function ChatContent() {
             url,
             null
         );
-        // await addChildMessage(
-        //     MessageData.key,
-        //     1,
-        //     currentUser.uid,
-        //     `${url}`,
-        //     url,
-        //     null
-        // );
 
         windowName = window.location.hostname;
         var ratio = 0.75;
@@ -548,6 +526,8 @@ function ChatContent() {
 
     if (MessageData && MessageData.type === 1) {
         //Tin nhắn với bạn bè
+        // console.log(MessageData)
+
         return (
             <Col lg className={className_chat}>
                 {/* Body message*/}
@@ -771,6 +751,7 @@ function ChatContent() {
 
     // Chat nhóm
     else if (MessageData && MessageData.type === 2) {
+        // console.log(MessageData)
         //Tin nhắn với group
         return (
             <Col lg className={className_chat}>

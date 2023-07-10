@@ -29,6 +29,7 @@ const useListFriend = (key, uid) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [key]);
     return [true];
+    
 };
 
 export default useListFriend;
