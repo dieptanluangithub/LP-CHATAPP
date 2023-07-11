@@ -33,7 +33,7 @@ function Setting() {
                 <div className="mt-2">{currentUser.displayName}</div>
             </div>
             <div className="ChatContent__userInfo-body fix_scroll p-4">
-                <Accordion defaultActiveKey="0">
+                <Accordion defaultActiveKey="0" alwaysOpen>
                     <Accordion.Item
                         className="userInfo__AccordionItem"
                         eventKey="0"
