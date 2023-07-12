@@ -84,7 +84,7 @@ export const addZoomMeetings = async (meetingName, groupCreatorId, listUserId) =
       invitedUsers: [],
     //   invitedUsers: listUserId,
       meetingDate: Date.now(),
-      maxUsers: listUserId.length,
+      maxUsers: 90,
       status: true,
     });
     return meetingId;
