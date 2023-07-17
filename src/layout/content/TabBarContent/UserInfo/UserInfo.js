@@ -19,7 +19,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function UserInfo() {
     const listFriendWait = useSelector((state) => state.ListFriendWait);
-    const listFriend = useSelector((state) => state.listFriend);
+    const listMessage = useSelector((state) => state.ListMessage);
+    const listFriend = useSelector((state) => state.AllFriend);
+    const listGroup = useSelector((state) => state.AllGroup);
     const [showRequset, setShowRequset] = useState(false);
     const currentUser = useSelector((state) => state.UserInfo.user);
     const localTheme = useSelector((state) => state.LocalTheme.theme);
@@ -152,13 +154,29 @@ function UserInfo() {
                             >
                                 <div className="friend_request_parent-text">Friend Request</div>
                                 <div className="friend_request_parent-length">
-                                    <Badge
+                                    <Badge   
                                         className="friend_request_parent-lengthContent"
                                         bg="primary"
                                     >
                                         {(listFriendWait &&
                                             listFriendWait?.listUser &&
                                             listFriendWait.listUser.length) ||
+                                            0}
+                                    </Badge>
+                                </div>
+                            </h6>
+                            <h6
+                                className="friend_request_parent"
+                            >
+                                <div className="friend_request_parent-text">Messages</div>
+                                <div className="friend_request_parent-length">
+                                    <Badge   
+                                        className="friend_request_parent-lengthContent"
+                                        bg="primary"
+                                    >
+                                        {(listMessage &&
+                                            listMessage?.listMessage &&
+                                            listMessage.listMessage.length) ||
                                             0}
                                     </Badge>
                                 </div>
@@ -173,8 +191,8 @@ function UserInfo() {
                                         bg="primary"
                                     >
                                         {(listFriend &&
-                                            listFriend?.listUser &&
-                                            listFriend.listUser.length) ||
+                                            listFriend?.listFriend &&
+                                            listFriend.listFriend.length) ||
                                             0}
                                     </Badge>
                                 </div>
@@ -188,9 +206,9 @@ function UserInfo() {
                                         className="friend_request_parent-lengthContent"
                                         bg="primary"
                                     >
-                                        {(listFriendWait &&
-                                            listFriendWait?.listUser &&
-                                            listFriendWait.listUser.length) ||
+                                        {(listGroup &&
+                                            listGroup?.listGroup &&
+                                            listGroup.listGroup.length) ||
                                             0}
                                     </Badge>
                                 </div>
