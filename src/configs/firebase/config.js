@@ -5,16 +5,26 @@ import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCBjBfFz7WNMkSZhFRx7Iu3WQ7mbGjqzpQ",
-    authDomain: "appchat-27fee.firebaseapp.com",
-    projectId: "appchat-27fee",
-    storageBucket: "appchat-27fee.appspot.com",
-    messagingSenderId: "231432078446",
-    appId: "1:231432078446:web:f62272982a0936c655527f",
-    measurementId: "G-M8Q4MGM8TS",
-    databaseURL:
-        "https://appchat-27fee-default-rtdb.asia-southeast1.firebasedatabase.app/",
-};
+    apiKey: "AIzaSyABHeEFmzwWUmXsOLEHLQoHyduVbG9HfJU",
+    authDomain: "app-chat-new-c955f.firebaseapp.com",
+    databaseURL: "https://app-chat-new-c955f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "app-chat-new-c955f",
+    storageBucket: "app-chat-new-c955f.appspot.com",
+    messagingSenderId: "42832451033",
+    appId: "1:42832451033:web:fd17e0c0c62d418ef9f5c8",
+    measurementId: "G-36GYFQL7LF"
+  };
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCBjBfFz7WNMkSZhFRx7Iu3WQ7mbGjqzpQ",
+//     authDomain: "appchat-27fee.firebaseapp.com",
+//     projectId: "appchat-27fee",
+//     storageBucket: "appchat-27fee.appspot.com",
+//     messagingSenderId: "231432078446",
+//     appId: "1:231432078446:web:f62272982a0936c655527f",
+//     measurementId: "G-M8Q4MGM8TS",
+//     databaseURL:
+//         "https://appchat-27fee-default-rtdb.asia-southeast1.firebasedatabase.app/",
+// };
 // const firebaseConfig = {
 //     apiKey: "AIzaSyABHeEFmzwWUmXsOLEHLQoHyduVbG9HfJU",
 //     authDomain: "app-chat-new-c955f.firebaseapp.com",
